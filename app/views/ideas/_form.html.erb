@@ -21,6 +21,10 @@
     <p><%= f.text_area :description %></p>
   </div>
 
+    <div class="field">
+      <%= f.collection_select :project_id, Project.order(:name), :id, :name, include_blank: true %>
+    </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
