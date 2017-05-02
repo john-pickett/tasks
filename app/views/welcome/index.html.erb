@@ -1,5 +1,41 @@
 <div class="row">
   <div class="col-md-8">
+    <h2>Focus</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Completed</th>
+          <th>Project</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @focus_tasks.each do |task| %>
+          <tr>
+            <td><%= link_to task.name, task %></td>
+            <td><%= form_for(task) do |f| %>
+              <div class="field">
+                <%= f.check_box :completed %>
+              <div class="actions">
+                <%= f.submit %>
+                <% end %>
+              </div></div>
+            </td>
+            <td><%= task.project.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <h2>New Idea</h2>
+
+    <%= render 'ideas/form', idea: @idea %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
     <h2>Tasks</h2>
     <table>
       <thead>
@@ -26,10 +62,5 @@
         <% end %>
       </tbody>
     </table>
-  </div>
-  <div class="col-md-4">
-    <h2>New Idea</h2>
-
-    <%= render 'ideas/form', idea: @idea %>
   </div>
 </div>
