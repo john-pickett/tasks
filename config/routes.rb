@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ideas
   resources :tasks
   resources :projects
   root 'welcome#index'
